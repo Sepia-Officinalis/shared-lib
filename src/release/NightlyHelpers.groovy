@@ -179,7 +179,7 @@ class NightlyHelpers implements Serializable {
                 steps.sh "curl -f ${healthCheckUrl} || exit 1"
             }
         }
-        // checking container statuses
+        // checking container status
         def result = steps.sh(
             script: "docker ps --filter 'label=com.docker.compose.project=${deploymentId}' --format '{{.Status}}' | grep -v 'Up' | wc -1",
             returnStdout: true
